@@ -1,33 +1,76 @@
-function getGrade(Score) {
-    if (Score >= 75) return "A1";
-    else if (Score >= 65) return "B2";
-    else if (Score >= 55) return "C3";
-    else if (Score >= 50) return "C4";
-    else if (Score >= 45) return "D7";
-    else if (Score >= 40) return "E8";
-    else return "F9";
+document.getElementById('calculateBtn').addEventListener('click',calculatetax)
+
+function calculatetax(){
+    const salary = parseFloat(document.getElementById('salary').value);
+    const allowance = parseFloat(document.getElementById('allowance').value);
+    
+    if(isNaN(salary) || isNaN(allowance)){
+        alert("Please fill in the space below")
+    }
+
+    const Monthlypay = salary + allowance;
+    const housing = 3/100 * Monthlypay;
+    const hospitaling = 2/100 * Monthlypay;
+    const leave = 1.5/100 * Monthlypay;
+    const tax = 1.5/100 * Monthlypay;
+    const insurance = 2/100 * Monthlypay;
+    const vat = 1.5/100 * Monthlypay;
+    const Totaltax = housing + hospitaling + leave + tax + insurance + vat;
+    const grosspay = Monthlypay - Totaltax;
+    const annualpay = grosspay**2;
+
+    displayResult(Monthlypay, housing, hospitaling, leave, tax, insurance, vat, Totaltax, grosspay, annualpay)
 }
 
-function calculateResults() {
-    let subjects = ["en", "mat", "phy", "che", "bio", "geo", "civ", "eco", "ict"];
-    let total = 0;
-    
-    subjects.forEach(subjects => {
-        let test = parseInt(document.getElementById(subjects + "-test").value) || 0;
-        let exam = parseInt(document.getElementById(subjects + "-exam").value) || 0;
-        let subjectsTotal = test + exam;
-        
-        document.getElementById(subjects + "-total").innerText = subjectsTotal;
-        document.getElementById(subjects + "-grade").innerText = getGrade(subjectsTotal);
-        
-        total += subjectsTotal;
-    });
-    
-    
-    let average = total / subjects.length;
-    let percentage = (total / (subjects.length * 100)) * 100;
-    
-    document.getElementById("total").innerText = total;
-    document.getElementById("average").innerText = average.toFixed(2);
-    document.getElementById("percentage").innerText = percentage.toFixed(2) + "%";
+function displayResult(Monthlypay, housing, hospitaling, leave, tax, insurance, vat, Totaltax, grosspay, annualpay){
+
+    const resultDiv = document.getElementById("Taxresults");
+
+    resultDiv.innerHTML = `
+        <h4>Result<h4>
+        <table>
+        <tr class="tablehead">
+            <th>Variable</th>
+            <td>Percentage</td>
+            <td>Amount</td>
+        </tr>
+        <tr>
+            <th>Housing</th>
+            <td>3%</td>
+            <td>N${housing.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>Hospitaling</th>
+            <td>2%</td>
+            <td>N${hospitaling.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>Leave</th>
+            <td>1.5%</td>
+            <td>N${leave.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>Tax</th>
+            <td>1.5%</td>
+            <td>N${tax.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>Insurance</th>
+            <td>2%</td>
+            <td>N${insurance.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>vat</th>
+            <td>1.5%</td>
+            <td>N${vat.toFixed(2)}</td>
+        </tr>
+        <tr>
+            <th>TOTAL</th>
+            <td></td>
+            <td>N${Totaltax.toFixed(2)}</td>
+        </tr>
+        </table>
+        <p>Grosspay: N${grosspay.toFixed(2)}</p>
+        <p>Annualpay: N${annualpay.toFixed(2)}</p>
+    `;
 }

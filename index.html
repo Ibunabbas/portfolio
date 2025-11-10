@@ -3,93 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tax Algorithm</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-    <h1>Federal Polytechnic</h1>
-    <h2>Secondary School</h2>
-    <h4>Examination Result</h4>
-    <table>
-        <tr>
-            <th class="sub">Subject</td>
-            <th>Test</td>
-            <th>Exam</td>
-            <th>Total</td>
-            <th>Grade</td>
-        </tr>
-        <tr>
-            <td class="sub">English</td>
-            <td><input type="number" min="0" max="40" id="en-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="en-exam" oninput="calculateResults()"></td>
-            <td><p id="en-total"></p></td>
-            <td><p id="en-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">Mathematics</td>
-            <td><input type="number" min="0" max="40" id="mat-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="mat-exam" oninput="calculateResults()"></td>
-            <td><p id="mat-total"></p></td>
-            <td><p id="mat-grade"></p></td>
-        </tr>
-       <tr>
-            <td class="sub">Physics</td>
-            <td><input type="number" min="0" max="40" id="phy-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="phy-exam" oninput="calculateResults()"></td>
-            <td><p id="phy-total"></p></td>
-            <td><p id="phy-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">Chemistry</td>
-            <td><input type="number" min="0" max="40" id="che-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="che-exam" oninput="calculateResults()"></td>
-            <td><p id="che-total"></p></td>
-            <td><p id="che-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">Biology</td>
-            <td><input type="number" min="0" max="40" id="bio-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="bio-exam" oninput="calculateResults()"></td>
-            <td><p id="bio-total"></p></td>
-            <td><p id="bio-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">Geography</td>
-            <td><input type="number" min="0" max="40" id="geo-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="geo-exam" oninput="calculateResults()"></td>
-            <td><p id="geo-total"></p></td>
-            <td><p id="geo-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">Civic Education</td>
-            <td><input type="number" min="0" max="40" id="civ-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="civ-exam" oninput="calculateResults()"></td>
-            <td><p id="civ-total"></p></td>
-            <td><p id="civ-grade"></p></td>
-        </tr>
-       <tr>
-            <td class="sub">Economics</td>
-            <td><input type="number" min="0" max="40" id="eco-test" oninput="calculateResults()"></td>
-            <td><input type="number" min="0" max="60" id="eco-exam" oninput="calculateResults()"></td>
-            <td><p  id="eco-total"></p></td>
-            <td><p id="eco-grade"></p></td>
-        </tr>
-        <tr>
-            <td class="sub">ICT</td>
-            <td><input type="number" min="0" max="40" id="ict-test"></td>
-            <td><input type="number" min="0" max="60" id="ict-exam"></td>
-            <td><p id="ict-total"></td>
-            <td><p id="ict-grade"></td>
-        </tr>
-    </table>
-    <!-- <button class="btn" onclick="calculateResults()">Calculate Result<button> -->
+        <h1 class="title">Tax Algorithm</h1>
+        <div class="Algorithm">
+            <div class="salary">
+                <label>Salary</label>
+                <input type="number" id="salary" placeholder="Monthly Salary (e.g. 2, 000, 000)" >
+            </div>
+
+            <div class="allowance">
+                <label>Allowance</label>
+                <input type="number" id="allowance" placeholder="Monthly Allowance (e.g. 2, 000, 000)">
+            </div>
+
+            <button id="calculateBtn">Calculate</button>
+            <div id="Taxresults"></div>
+        </div>
+        
     </div>
-    <div class="cal">
-        <div>Total: <span id="total">0</span></div>
-        <div>Average: <span id="average">0</span></div>
-        <div>Percentage: <span id="percentage">0%</span></div>
-    </div>
-<script src="script.js"></script>
+   
+    <script src="script.js"></script>
 </body>
 </html>
